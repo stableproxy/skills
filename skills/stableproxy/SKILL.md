@@ -57,6 +57,10 @@ Renewing a package, adding traffic or adding IPs is not available through the to
 
 Changing logins, passwords, the entry server or replacing proxies changes what the user's software must use — tell them before doing it.
 
+## Anything else
+
+No dedicated tool for a task? `find_api_methods` searches every documented StableProxy API method (v3 first, then the older v2) and `call_api` calls it. Prefer a dedicated tool, then v3, then v2. v2 methods only work when the server runs with an API key, and v2's purchase, renew and top-up methods pay at once — get the user's explicit yes before calling them.
+
 ## Signing in
 
 The first tool that needs the account opens the StableProxy sign-in page in the user's browser. If the tool answers that sign-in is needed, tell the user to finish it in the browser (or give them the link from the answer), then call the tool again. `sign_in` switches account or grants more; `sign_out` forgets the sign-in.
