@@ -1,0 +1,18 @@
+{
+  "name": "stableproxy",
+  "owner": {
+    "name": "StableProxy",
+    "url": "https://stableproxy.com"
+  },
+  "metadata": {
+    "description": "StableProxy for AI agents: proxy skills plus the StableProxy MCP server."
+  },
+  "plugins": [
+    {
+      "name": "stableproxy",
+      "source": "./",
+      "description": "Buy, connect and manage StableProxy proxies from your agent, and know how proxies work.",
+      "category": "integrations"
+    }
+  ]
+}

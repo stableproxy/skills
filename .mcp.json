@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "stableproxy": {
+      "type": "http",
+      "url": "https://mcp.stableproxy.com"
+    }
+  }
+}

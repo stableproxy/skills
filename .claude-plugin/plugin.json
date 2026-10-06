@@ -1,0 +1,12 @@
+{
+  "name": "stableproxy",
+  "version": "0.1.0",
+  "description": "Buy, connect and manage StableProxy proxies from your agent, and know how proxies work: the StableProxy MCP server plus skills for proxy basics, integration and debugging.",
+  "author": {
+    "name": "StableProxy",
+    "url": "https://stableproxy.com"
+  },
+  "homepage": "https://app.stableproxy.com/mcp",
+  "repository": "https://github.com/stableproxy/skills",
+  "keywords": ["proxy", "residential", "mobile", "datacenter", "scraping", "mcp"]
+}
