@@ -28,7 +28,7 @@ Rules: try the cheapest type that works; move up only when blocked (see the *pro
 1. `get_catalog` for products and options; `list_countries` when a country matters.
 2. `price_order` with `action: new`, the `product` and its `options` (or `action: topup` to add balance). It returns the exact price and a draft; nothing is charged.
 3. **Show the user the price and get an explicit yes.** Never confirm on your own initiative.
-4. `confirm_order`. From a connected app it usually comes back **held**: give the user the approval link to confirm in their browser. If the balance is short it returns a payment link instead.
+4. `confirm_order`. It usually comes back **held**: give the user the approval link to confirm in their browser. It is paid at once only if the user allowed automatic purchases within their daily limit, or connected with an API key that may purchase. If the balance is short it returns a payment link instead.
 5. `wait_for_payment` with the order id until it reports `paid`; call it again while pending.
 6. The result names the new package; continue with `get_connection`.
 
@@ -57,9 +57,13 @@ Renewing a package, adding traffic or adding IPs is not available through the to
 
 Changing logins, passwords, the entry server or replacing proxies changes what the user's software must use — tell them before doing it.
 
+## Signing in
+
+The first tool that needs the account opens the StableProxy sign-in page in the user's browser. If the tool answers that sign-in is needed, tell the user to finish it in the browser (or give them the link from the answer), then call the tool again. `sign_in` switches account or grants more; `sign_out` forgets the sign-in.
+
 ## When a tool says it is not allowed
 
-The connection was granted fewer permissions than the task needs. Ask the user to reconnect StableProxy and allow the missing access, or to do that step in the dashboard. Never ask for their password or API key in the chat.
+The sign-in was granted fewer permissions than the task needs. Ask the user to run `sign_in` again and allow the missing access, or to do that step in the dashboard. Never ask for their password or API key in the chat.
 
 ## Without the tools
 

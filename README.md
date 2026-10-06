@@ -26,8 +26,11 @@ npx skills add stableproxy/skills
 
 Add `-g` to install for every project. Run it again to update.
 
-**Tools without the plugin** — add the MCP server by URL in your client: `https://mcp.stableproxy.com`
-(Claude Code: `claude mcp add --transport http stableproxy https://mcp.stableproxy.com`).
+The plugin's tools run [`@stableproxy/mcp`](https://www.npmjs.com/package/@stableproxy/mcp) with `npx`. The first
+time a tool needs your account, StableProxy opens in your browser to sign in — no key to create.
+
+**Tools without the plugin** — see [`@stableproxy/mcp`](https://www.npmjs.com/package/@stableproxy/mcp) for Claude
+Desktop, Cursor and VS Code.
 
 ## Skills
 
@@ -42,8 +45,8 @@ Skills never contain prices; the agent reads them live from the MCP tools.
 
 ## Safety
 
-Purchases made by an agent wait for you to confirm them in your browser, unless you turn on automatic purchases
-with a daily limit. Disconnect an app any time in the dashboard under Settings → Security.
+Every purchase the agent makes waits for you to confirm it in your browser, unless you allow automatic purchases
+with a daily limit. Disconnect it any time in the dashboard under Settings → Security.
 
 ## Contributing
 

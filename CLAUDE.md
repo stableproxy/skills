@@ -2,7 +2,8 @@
 
 Public repo (not pushed yet): Agent Skills for proxies and StableProxy, and a Claude Code plugin marketplace whose one
 plugin is **this repo root** (`"source": "./"`) — `skills/`, `.mcp.json` and `.claude-plugin/plugin.json` are the
-plugin. Do not move the skills under `plugins/`, and do not symlink them: an installed plugin is copied into a cache,
+plugin. `.mcp.json` runs `npx -y @stableproxy/mcp` with no settings: the package signs the user in through the browser on
+first use (no hosted server for now). Do not move the skills under `plugins/`, and do not symlink them: an installed plugin is copied into a cache,
 and a link pointing outside the plugin folder breaks there.
 
 ## Rules that bite

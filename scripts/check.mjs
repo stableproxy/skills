@@ -47,7 +47,7 @@ const mcp = json(".mcp.json")
 
 if (!marketplace.plugins?.some(entry => entry.name === plugin.name)) fail("marketplace.json must list the plugin from plugin.json")
 if (!/^\d+\.\d+\.\d+$/.test(plugin.version || "")) fail("plugin.json version must be semver")
-if (!mcp.mcpServers?.stableproxy?.url) fail(".mcp.json must define mcpServers.stableproxy.url")
+if (!mcp.mcpServers?.stableproxy?.url && !mcp.mcpServers?.stableproxy?.command) fail(".mcp.json must define mcpServers.stableproxy (url or command)")
 
 const base = process.env.BASE_REF
 if (base) {
