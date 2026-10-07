@@ -44,6 +44,18 @@ Renewing a package, adding traffic or adding IPs is not available through the to
 - A sticky IP only changes when you `rotate_ip`.
 - Download the whole list with `get_download_links` (txt, csv, json, xml or curl lines; HTTP or SOCKS5). Anyone with such a link gets the list — `reset_download_links` revokes old links.
 
+## Writing code with the user's proxies
+
+When the user wants a scraper, bot or script that runs through *their* StableProxy proxies and the tools are connected, get the credentials yourself — do not ask them to paste a host or password:
+
+1. `list_packages` → pick the package that fits (ask only if several fit equally).
+2. `get_connection` with that package `id` (and `protocol: socks5` if the code needs SOCKS) → host, port, login, password and a ready proxy URL.
+3. Put them in a `.env` file the code reads (`PROXY_URL=…`), add `.env` to `.gitignore`, never hard-code them.
+4. For rotation across many proxies, use `get_proxies` or `get_download_links` and load the list at runtime.
+5. Write the code with the *proxy-integrate* skill and check the exit IP once before the real run.
+
+If the only StableProxy tool listed is `stableproxy_status`, the server is connected but could not load its tools — call it, tell the user the reason it gives, and continue with credentials they provide.
+
 ## Managing
 
 | Task | Tools |
